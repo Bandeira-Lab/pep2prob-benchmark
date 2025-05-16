@@ -1,3 +1,3 @@
 # pep2prob-benchmark
 
-This repo is for reproducing experiments in the paper "Pep2Prob Benchmark: Predicting Fragment Ion Probability for MS$^2$-based Proteomics".
+This repo is for reproducing experiments in the paper "Pep2Prob Benchmark: Predicting Fragment Ion Probability for MS$$^2$$-based Proteomics".
