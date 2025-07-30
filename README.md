@@ -86,12 +86,12 @@ You can separately run the following models. The outputs and the final predictio
       ```shell
       python -u -m models.linear_regression.linear_regression_model
       ```
-   *  **_Resnet_**
+   *  **_Resnet model_**
       
      ```shell
      python -u -m models.resnet.resnet_model
      ```
-   *  **_Transformer_**
+   *  **_Transformer model_**
       
     ```shell
     python -u -m models.transformer.transformer_model \
