@@ -56,39 +56,40 @@ We evaluate five methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spect
 ## ⚙️ Usage steps
 1. **Set up environment**
 
-  </pre>
-  ```bash
+  ```shell
   conda create -n pep2prob-env python==3.10
   conda activate pep2prob-env
   pip install -r requirements.txt
+  ```
 
 2. **Download dataset & train-test spilt files**
 
-  ```bash
+  ```shell
   python data/download_data.py
+  ```
 
 3. **Running different baseline models**
 
 You can separately run the following models. The outputs and the final predictions of the models will be saved in the predictions folder.
    1. _Gloabal model_
-      ```bash
+      ```shell
       python -u -m models.global.global_model
-
+      ```
    2. _Bag of Fragment ion model_
   
-      ```bash
+      ```shell
       python -u -m models.bag_of_fragment_ion.bof_model
-
+      ```
    3. _Linear regression model_
-      ```bash
+      ```shell
       python -u -m models.linear_regression.linear_regression_model
-
+      ```
    4. _Resnet_
-     ```bash
+     ```shell
      python -u -m models.resnet.resnet_model
-
+     ```
    5. _Transformer_
-    ```bash
+    ```shell
     python -u -m models.transformer.transformer_model \
       --precursor_info_path data/pep2prob/pep2prob_dataset.csv \
       --split_path          data/pep2prob/train_test_split_set_1.npy \
@@ -98,5 +99,5 @@ You can separately run the following models. The outputs and the final predictio
       --weight_decay        0.001 \
       --save_prefix         predictions/transformer_model_run0 \
       --max_length_input    40
-     
+     ```
 ---
