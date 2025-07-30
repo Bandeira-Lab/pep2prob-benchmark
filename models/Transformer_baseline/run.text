@@ -1,1 +1,0 @@
-python -u main.py   --precursor_info_path precursor_info.tsv   --matrix_path matrix_mz_prob_mean_var.npy   --split_path train_test_split_set_0.npy   --epochs 2   --batch_size 1024   --lr 0.001   --weight_decay 0.001   --save_prefix outputs/model_run0   --max_length_input 40

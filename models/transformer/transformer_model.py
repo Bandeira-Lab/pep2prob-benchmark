@@ -1,18 +1,17 @@
-# main.py
-
 import argparse
 import torch
 import pandas as pd
 import numpy as np
 
-# from model_prob import DecoderOnlyTransformer
-from model_prob.transformer import DecoderOnlyTransformer
-from data.loader import MS2Dataset
 
-from data.tokenizer import build_token_vocab, encode_input
-from train.trainer import Trainer
-from evaluate import run_inference
-from visualize import plot_losses
+# from model_prob import DecoderOnlyTransformer
+from models.transformer.model_prob.transformer import DecoderOnlyTransformer
+from models.transformer.dataloader.loader import MS2Dataset
+
+from models.transformer.dataloader.tokenizer import build_token_vocab, encode_input
+from models.transformer.train.trainer import Trainer
+from models.transformer.evaluate import run_inference
+from models.transformer.visualize import plot_losses
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -20,8 +19,6 @@ def parse_args():
     # Data paths
     parser.add_argument("--precursor_info_path", type=str, required=True,
                         help="Path to precursor_info.tsv")
-    parser.add_argument("--matrix_path", type=str, required=True,
-                        help="Path to matrix_mz_prob_mean_var.npy")
     parser.add_argument("--split_path", type=str, required=True,
                         help="Path to train_test_split_set.npy")
 
@@ -45,18 +42,19 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Load data
-    precursor_df = pd.read_csv(args.precursor_info_path, sep="\t")
-    matrix = np.load(args.matrix_path)
+    precursor_df = pd.read_csv(args.precursor_info_path, sep=',')
+    cols = precursor_df.columns[5:]
+    matrix = precursor_df[cols].to_numpy()
     split = np.load(args.split_path, allow_pickle=True).item()
 
     # Tokenizer
-    all_tokens, token_to_id = build_token_vocab(precursor_df["sequence"].tolist())
+    all_tokens, token_to_id = build_token_vocab(precursor_df["peptide"].tolist())
 
     # Split data
-    train_df = precursor_df.iloc[split["train_indices"]].reset_index(drop=True)
-    test_df  = precursor_df.iloc[split["test_indices"]].reset_index(drop=True)
-    train_matrix = matrix[split["train_indices"]]
-    test_matrix  = matrix[split["test_indices"]]
+    train_df = precursor_df.iloc[split["train"]].reset_index(drop=True)
+    test_df  = precursor_df.iloc[split["test"]].reset_index(drop=True)
+    train_matrix = matrix[split["train"]]
+    test_matrix  = matrix[split["test"]]
 
     # Datasets
     train_dataset = MS2Dataset(train_df, train_matrix, token_to_id, max_length_input=args.max_length_input)

@@ -23,7 +23,7 @@ class MS2Dataset(Dataset):
         return len(self.df)
 
     def __getitem__(self, idx):
-        seq = self.df.loc[idx, 'sequence']
+        seq = self.df.loc[idx, 'peptide']
         charge = self.df.loc[idx, 'charge']
         input_ids = encode_input(seq, charge, self.token_to_id, self.max_length_input)
         input_ids = torch.tensor(input_ids, dtype=torch.long)
@@ -32,7 +32,7 @@ class MS2Dataset(Dataset):
         ion_mask = torch.tensor(ion_mask, dtype=torch.bool)
 
         row = self.matrix_data[idx]
-        probability = torch.tensor(row[:, 1], dtype=torch.float)
+        probability = torch.tensor(row, dtype=torch.float)
 
         combined_input = torch.cat([input_ids, torch.full((self.output_length,), self.token_to_id['[PAD]'], dtype=torch.long)])
         output_pos_tensor = (combined_input == self.token_to_id["[OUTPUT]"]).nonzero(as_tuple=True)[0]
