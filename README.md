@@ -8,13 +8,13 @@
 ## 📖 Overview
 
 Tandem mass spectrometry (MS²) identifies peptides by fragmenting precursor ions and measuring resulting spectra.  
-Accurate **fragment ion probability** models are critical for downstream tasks—database search, spectral library matching, de novo sequencing, PTM localization, and quantification.  
+Accurate **fragment ion probability** models are crucial for downstream tasks, including database search, spectral library matching, de novo sequencing, PTM localization, and quantification.  
 
 Our **Pep2Prob Benchmark** provides:
 
-- A new curated dataset **Pep2Prob** containing peptide-specific fragment probabilities, where each precusor (peptide sequence+charge state) has a vector showing the probabilities of appearing fragment ions for such precusor.  
+- A new curated dataset **Pep2Prob** containing peptide-specific fragment probabilities, where each precursor (peptide sequence+charge state) has a vector showing the probabilities of appearing fragment ions for such precursor.  
 - A **train-test split** method.
-- A **standardized benchmark** with five baseline methods of increasing capacity: Gloabal model, Bag of Fragment ion model, Linear regression model, Resnet and a transformer-type model. We train these models in Pep2Prob dataset to prediction and evaluate the probability statistics of given precursors.
+- A **standardized benchmark** with five baseline methods of increasing capacity: Global model, Bag of Fragment ion model, Linear regression model, Resnet, and a transformer-type model. We train these models in the Pep2Prob dataset to predict and evaluate the probability statistics of given precursors.
  
 
 ---
@@ -24,7 +24,7 @@ Our **Pep2Prob Benchmark** provides:
 - **608 ,780 unique precursors** (peptide sequence + charge)  
 - Constructed from **183 ,263 ,674 high-resolution HCD MS² spectra**  
 - **235 possible fragment ions** per precursor (a-, b-, y-ions with up to 3 charges)  
-- **Probability vectors** \($p(f|p)\in[0,1]^{235}$\) estimated by counting presence of the fragment ions given the precuor across repeated spectra  
+- **Probability vectors** \($p(f|p)\in[0,1]^{235}$\) estimated by counting the presence of the fragment ions given the precursor across repeated spectra  
 - **Train/test split** avoids leakage by grouping similar sequences (identical, shared 6-mer prefix/suffix) into disjoint folds 
 
 ---
@@ -71,27 +71,27 @@ We evaluate five methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spect
 3. **Running different baseline models**
 
 You can separately run the following models. The outputs and the final predictions of the models will be saved in the predictions folder.
-   *  _Gloabal model_
+   *  **_Gloabal model_**
       
       ```shell
       python -u -m models.global.global_model
       ```
-   *  _Bag of Fragment ion model_
+   *  **_Bag of Fragment ion model_**
   
       ```shell
       python -u -m models.bag_of_fragment_ion.bof_model
       ```
-   *  _Linear regression model_
+   *  **_Linear regression model_**
       
       ```shell
       python -u -m models.linear_regression.linear_regression_model
       ```
-   *  _Resnet_
+   *  **_Resnet_**
       
      ```shell
      python -u -m models.resnet.resnet_model
      ```
-   *  _Transformer_
+   *  **_Transformer_**
       
     ```shell
     python -u -m models.transformer.transformer_model \
