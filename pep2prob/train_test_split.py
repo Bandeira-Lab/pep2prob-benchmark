@@ -6,7 +6,7 @@ import numpy as np
 from tqdm import tqdm
 import pickle
 import matplotlib.pyplot as plt
-from utils import *
+from src.utils import *
 
 INPUT_DIT = "./dataset"
 prefix_suffix_low_dist_set_dict_path = os.path.join(INPUT_DIT, "prefix_suffix_low_dist_set_dict.pkl")
