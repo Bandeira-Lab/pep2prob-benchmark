@@ -71,27 +71,27 @@ We evaluate five methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spect
 3. **Running different baseline models**
 
 You can separately run the following models. The outputs and the final predictions of the models will be saved in the predictions folder.
-   1. _Gloabal model_
+   *  _Gloabal model_
       
       ```shell
       python -u -m models.global.global_model
       ```
-   3. _Bag of Fragment ion model_
+   *  _Bag of Fragment ion model_
   
       ```shell
       python -u -m models.bag_of_fragment_ion.bof_model
       ```
-   4. _Linear regression model_
+   *  _Linear regression model_
       
       ```shell
       python -u -m models.linear_regression.linear_regression_model
       ```
-   5. _Resnet_
+   *  _Resnet_
       
      ```shell
      python -u -m models.resnet.resnet_model
      ```
-   7. _Transformer_
+   *  _Transformer_
       
     ```shell
     python -u -m models.transformer.transformer_model \
