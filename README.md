@@ -62,8 +62,11 @@ We evaluate FIVE methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spect
    You can install the pytorch package with the versions that match your hardware, or use the same environment as mine using the following commands:
 
   ```shell
-  conda create -n pep2prob-env python==3.10
+  conda create -n pep2prob-env python==3.11
   conda activate pep2prob-env
+
+  pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124  (for Linux and Windows)
+
   pip install -r requirements.txt
   ```
 
