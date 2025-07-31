@@ -38,11 +38,13 @@ We evaluate FIVE methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spect
 | **Global**    | global stats only   | 0.244      | 0.558   | 0.699                |
 | **BoF**       | + fragment sequence | 0.179      | 0.509   | 0.803                |
 | **Linear Reg**| one-hot features    | 0.126      | 0.695   | 0.766                |
-<!-- | **CNN**       | 4-layer 1d CNN      | 0.072      | 0.808   | 0.870                | -->
 | **ResNet**    | 4-layer MLP         | 0.069  | 0.818   | 0.871                |
 | **Transformer** | decoder-only       | **0.056**      | **0.845** | **0.953**            |
 
-> Model capacity correlates with better capturing complex sequence-to-fragment relationships. 
+> Model capacity correlates with better capturing complex sequence-to-fragment relationships.
+
+
+<!-- | **CNN**       | 4-layer 1d CNN      | 0.072      | 0.808   | 0.870                | -->
 
 ---
 
