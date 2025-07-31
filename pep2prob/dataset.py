@@ -42,7 +42,7 @@ class Pep2ProbDataset:
         self.min_num_psm_for_statistics = min_num_psm_for_statistics
 
         # Download dataset if not already present
-        Pep2ProbDataSet.download_dataset_from_HuggingFace(self.data_dir, skip_download_if_exists=True)
+        Pep2ProbDataset.download_dataset_from_HuggingFace(self.data_dir, skip_download_if_exists=True)
 
         # Load train and test indices
         train_indices_df, test_indices_df = self.load_train_test_X_Y()

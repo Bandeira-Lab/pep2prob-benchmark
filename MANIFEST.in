@@ -1,0 +1,14 @@
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+include setup.py
+recursive-include pep2prob *.py
+recursive-include pep2prob *.txt
+recursive-include pep2prob *.md
+recursive-include tutorial *.ipynb
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * *.orig
+recursive-exclude * *.rej
+recursive-exclude * .DS_Store
