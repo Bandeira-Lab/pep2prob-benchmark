@@ -88,20 +88,20 @@ You can separately run the following models. The outputs and the final predictio
       ```
    *  **_Resnet model_**
       
-     ```shell
-     python -u -m models.resnet.resnet_model
-     ```
+      ```shell
+      python -u -m models.resnet.resnet_model
+      ```
    *  **_Transformer model_**
       
-    ```shell
-    python -u -m models.transformer.transformer_model \
-      --precursor_info_path data/pep2prob/pep2prob_dataset.csv \
-      --split_path          data/pep2prob/train_test_split_set_1.npy \
-      --epochs              2 \
-      --batch_size          1024 \
-      --lr                  0.001 \
-      --weight_decay        0.001 \
-      --save_prefix         predictions/transformer_model_run0 \
-      --max_length_input    40
-     ```
+      ```shell
+      python -u -m models.transformer.transformer_model \
+        --precursor_info_path data/pep2prob/pep2prob_dataset.csv \
+        --split_path          data/pep2prob/train_test_split_set_1.npy \
+        --epochs              2 \
+        --batch_size          1024 \
+        --lr                  0.001 \
+        --weight_decay        0.001 \
+        --save_prefix         predictions/transformer_model_run0 \
+        --max_length_input    40
+       ```
 ---
