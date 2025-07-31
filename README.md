@@ -12,8 +12,8 @@ Accurate **fragment ion probability** models are crucial for downstream tasks, i
 
 Our **Pep2Prob Benchmark** provides:
 
-- A new curated dataset **Pep2Prob** containing peptide-specific fragment probabilities, where each precursor (peptide sequence+charge state) has a vector showing the probabilities of appearing fragment ions for such precursor.  
-- A **train-test split** method.
+- The first curated dataset **Pep2Prob** contains peptide-specific fragment probabilities, where each precursor (peptide sequence, charge state) has a vector showing the probabilities of a list of appearing fragment ions for such precursor.  
+- A **train-test split** method to prevent data leakage.
 - A **standardized benchmark** with five baseline methods of increasing capacity: Global model, Bag of Fragment ion model, Linear regression model, Resnet, and a transformer-type model. We train these models in the Pep2Prob dataset to predict and evaluate the probability statistics of given precursors.
  
 
@@ -22,7 +22,7 @@ Our **Pep2Prob Benchmark** provides:
 ## 🗃️ Dataset
 
 - **610,117 unique precursors** (peptide sequence + charge)  
-- Constructed from **183 millions high-resolution HCD MS² spectra**  
+- Constructed from **183 million high-resolution HCD MS² spectra** from 227 mass spectrometry datasets in the MassIVE repository.
 - **235 possible fragment ions** per precursor (b-, y-ions with up to 3 charges, as well as a-ions with charge 1 at position 2)  
 - **Probability vectors** \($p(f|p)\in[0,1]^{235}$\) estimated by counting the presence of the fragment ions given the precursor across repeated spectra  
 - **Train/test split** avoids leakage by grouping similar sequences (identical, shared 6-mer prefix/suffix) into disjoint folds 
