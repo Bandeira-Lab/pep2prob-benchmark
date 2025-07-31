@@ -8,7 +8,7 @@
 ## 📖 Overview
 
 Tandem mass spectrometry (MS²) identifies peptides by fragmenting precursor ions and measuring resulting spectra.  
-Accurate **fragment ion probability** models are crucial for downstream tasks, including database search, spectral library matching, de novo sequencing, PTM localization, and quantification.  
+Accurate **fragment ion probability** models are crucial for downstream tasks, including database search, spectral library matching, de novo sequencing and other tools for peptide identification and quantification from MS² data.  
 
 Our **Pep2Prob Benchmark** provides:
 
@@ -21,9 +21,9 @@ Our **Pep2Prob Benchmark** provides:
 
 ## 🗃️ Dataset
 
-- **608 ,780 unique precursors** (peptide sequence + charge)  
-- Constructed from **183 ,263 ,674 high-resolution HCD MS² spectra**  
-- **235 possible fragment ions** per precursor (a-, b-, y-ions with up to 3 charges)  
+- **610,117 unique precursors** (peptide sequence + charge)  
+- Constructed from **183 millions high-resolution HCD MS² spectra**  
+- **235 possible fragment ions** per precursor (b-, y-ions with up to 3 charges, as well as a-ions with charge 1 at position 2)  
 - **Probability vectors** \($p(f|p)\in[0,1]^{235}$\) estimated by counting the presence of the fragment ions given the precursor across repeated spectra  
 - **Train/test split** avoids leakage by grouping similar sequences (identical, shared 6-mer prefix/suffix) into disjoint folds 
 
@@ -31,13 +31,14 @@ Our **Pep2Prob Benchmark** provides:
 
 ## ⚙️ Benchmark
 
-We evaluate five methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spectral angle (SA)**, and **fragment-existence metrics**:
+We evaluate FIVE methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spectral angle (SA)**, and **fragment-existence metrics**:
 
 | Model         | Capacity            | Test L₁ ↓   | SA ↑    | Existence Accuracy ↑ |
 |---------------|---------------------|------------|---------|----------------------|
 | **Global**    | global stats only   | 0.244      | 0.558   | 0.699                |
 | **BoF**       | + fragment sequence | 0.179      | 0.509   | 0.803                |
 | **Linear Reg**| one-hot features    | 0.126      | 0.695   | 0.766                |
+<!-- | **CNN**       | 4-layer 1d CNN      | 0.072      | 0.808   | 0.870                | -->
 | **ResNet**    | 4-layer MLP         | 0.069  | 0.818   | 0.871                |
 | **Transformer** | decoder-only       | **0.056**      | **0.845** | **0.953**            |
 
