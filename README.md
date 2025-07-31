@@ -55,6 +55,7 @@ We evaluate five methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spect
 ---
 ## ⚙️ Usage steps
 1. **Set up environment**
+   
    You can install the pytorch package with the versions that match your hardware, or use the same environment as mine using the following commands:
 
   ```shell
@@ -64,6 +65,7 @@ We evaluate five methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spect
   ```
 
 2. **Download dataset & train-test spilt files**
+   
    You can use the following commands to download our dataset from Huggingface (https://huggingface.co/datasets/bandeiralab/Pep2Prob). The dataset will be stored in data/pep2prob.
 
   ```shell
