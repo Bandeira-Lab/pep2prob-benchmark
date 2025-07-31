@@ -80,28 +80,29 @@ We evaluate FIVE methods on Pep2Prob, measuring **$L_1$ loss**, **MSE**, **spect
 
 3. **Running different baseline models**
 
-You can separately run the following models. The outputs and the final predictions of the models will be saved in the predictions folder.
-   *  **_Gloabal model_**
+You can separately run the following models. The outputs and the final predictions of the models will be saved in the predictions folder. For more details of each baseline model, please check our paper.
+   *  **_Gloabal model._**
       
       ```shell
       python -u -m models.global.global_model
       ```
-   *  **_Bag of Fragment ion model_**
+   *  **_Bag of Fragment ion model._**
   
       ```shell
       python -u -m models.bag_of_fragment_ion.bof_model
       ```
-   *  **_Linear regression model_**
+   *  **_Linear regression model._**
       
       ```shell
       python -u -m models.linear_regression.linear_regression_model
       ```
-   *  **_Resnet model_**
+   *  **_Resnet model._**
       
       ```shell
       python -u -m models.resnet.resnet_model
       ```
-   *  **_Transformer model_**
+   *  **_Transformer model._**
+      For the transformer model, you can adjust the number of epochs for training, batch size, learning rate, weight decay, and the maximal length of the peptide sequence.
       
       ```shell
       python -u -m models.transformer.transformer_model \
