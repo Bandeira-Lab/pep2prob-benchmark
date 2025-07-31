@@ -9,6 +9,8 @@ project_root = os.path.abspath(
 sys.path.insert(0, project_root)
 from data.utils import *
 
+print("Linear Regression model script started.")
+
 seed = 42
 
 
@@ -53,10 +55,10 @@ test_indices = loaded_data['test']
 np.concatenate((train_indices, test_indices), axis=0).max()
 matrix.shape[0]
 
-# number of rows
-print(precursor_df.index.max())
-print(precursor_df.shape[0])
-print(precursor_df['precursor_index'].max())
+# # number of rows
+# print(precursor_df.index.max())
+# print(precursor_df.shape[0])
+# print(precursor_df['precursor_index'].max())
 
 # create peak mask: probabilities outside mask shouldn't have value and are set to -1
 
@@ -143,11 +145,11 @@ X = np.array([encode_sequence_and_charge(seq, charge) for seq, charge in zip(seq
 Y = probabilities
 
 
-idx = 1234
-print(f"Sequence: {sequences[idx]}")
-print(f"Charge: {charges[idx]}")
-print(f"Encoded Sequence: {X[idx, :]}")
-print(f"Probabilities (first 20): {Y[idx, :20]}")
+# idx = 1234
+# print(f"Sequence: {sequences[idx]}")
+# print(f"Charge: {charges[idx]}")
+# print(f"Encoded Sequence: {X[idx, :]}")
+# print(f"Probabilities (first 20): {Y[idx, :20]}")
 
 # create one-hot version of X
 X_1hot = np.zeros((X.shape[0], X.shape[1], len(char_to_int)), dtype=int)
@@ -157,8 +159,8 @@ for i in range(X.shape[0]):
             X_1hot[i, j, X[i, j]-1] = 1
 X_1hot = X_1hot.reshape(X.shape[0], -1)
 
-idx = 1234
-print(f"One-hot Encoded Sequence: {X_1hot[idx, :]}")
+# idx = 1234
+# print(f"One-hot Encoded Sequence: {X_1hot[idx, :]}")
 
 # train test split
 
