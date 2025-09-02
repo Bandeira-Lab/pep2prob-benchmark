@@ -116,3 +116,17 @@ You can separately run the following models. The outputs and the final predictio
         --max_length_input    40
        ```
 ---
+
+## 📖 Citation
+
+```bibtex
+@misc{xu2025pep2prob,
+      title={Pep2Prob Benchmark: Predicting Fragment Ion Probability for MS$^2$-based Proteomics}, 
+      author={Hao Xu and Zhichao Wang and Shengqi Sang and Pisit Wajanasara and Nuno Bandeira},
+      year={2025},
+      eprint={2508.21076},
+      archivePrefix={arXiv},
+      primaryClass={q-bio.BM},
+      url={https://arxiv.org/abs/2508.21076}, 
+}
+```
